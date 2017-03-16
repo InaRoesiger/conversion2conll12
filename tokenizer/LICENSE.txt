@@ -1,0 +1,2 @@
+This tokenizer was delevoped by H. Schmid at CIS, University of Munich.
+It is freely available for education, research and other non-commercial purposes. 
