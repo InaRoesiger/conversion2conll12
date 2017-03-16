@@ -1,0 +1,40 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+PreprocessingAndCoreference.sh 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Usage: sh PreprocessingAndCoreference.sh inputfile outputfile
+Inputfile should be in UTF-8 and in- and outputfiles given with an absolute path
+
+Tools required: Java, python, perl, bash
+You need to download a number of external tools and put them into their respective folders: 
+
+mate: 
+https://code.google.com/archive/p/mate-tools/downloads
+Download anna-3.61.jar (or a newer version) and the German models ger-tagger+lemmatizer+morphology+graph-based-3.6+.tgz.
+Put the jar in the folder mate and unpack the German models into the same directory.
+Check that the models are not in a subfolder but in the main mate folder. 
+
+Berkeley parser:
+https://github.com/slavpetrov/berkeleyparser
+Clone the git directory (BerkeleyParser-1.7.jar (or a newer version) and the German model ger_sm5.gr) and put it into the folder parser. 
+Make sure both the jar and the grammar files are directly unter parser/ and not in an automatically created subdirectory.
+
+Stanford NER: 
+http://nlp.stanford.edu/software/CRF-NER.shtml
+Download the NER tool (unpack the archive) and the German classifiers
+Make sure the tool sits directly under /ner and not in an automatically created subdirectory.
+To obtain the German model, download the jar file (stanford-german-corenlp-2016-10-31-models.jar) into /ner/classifiers, unpack the jar file, 
+mv model file from "ner/classifiers/edu/stanford/nlp/models/ner/german.conll.hgc_175m_600.crf.ser.gz" to ner/classifiers and rename into "hgc_175m_600.crf.ser.gz".
+
+IMS HOTCOREF DE:
+http://www.ims.uni-stuttgart.de/forschung/ressourcen/werkzeuge/HotCorefDe
+Download the archive, unzip into folder /ims-hotcoref-de-lrec
+Download the model coref-model-tueba10-all-pred and put it without unpacking into the ./ims-hotcoref-de-lrec folder
+You can of course also try the other models, just rename the model in the coreference step in the shell script!
+
+Note: 
+- outputfile should not be in folder output as this folder contains tmp files that will get deleted at the end
+- does not seem to like _ in filenames, rename!
+- parser crashes if file name contains Umlaute. 
+- coref system needs heap space of 20GB
+
