@@ -27,7 +27,7 @@ SCRIPTSDIR=./scripts
 TOKDIR=./tokenizer
 
 # path to coreference system
-COREFDIR=./ims-hotcoref-de-lrec
+COREFDIR=./ims-hotcoref
 
 file="$1"
 
@@ -224,7 +224,7 @@ file="$1"
 	echo "
 	Coreference resolution  .................."
 	cd $COREFDIR
-	java -Xmx20g -cp "./ims-hotcoref-standalone.jar:./lib/*" ims.hotcoref.Test -model ./coref-model-tueba10-all-pred  -out ./../$OUTDIR/$origfilename.conll.final.out2 -cores "4" -in ./../$OUTDIR/$origfilename.conll.final -lemmaBased -beam 20
+	java -Xmx20g -cp "./ims-hotcoref-standalone.jar:./lib/*" ims.hotcoref.Test -model ./coref-model-2017  -out ./../$OUTDIR/$origfilename.conll.final.out2 -cores "4" -in ./../$OUTDIR/$origfilename.conll.final -lemmaBased -beam 20
 
 	#java -Xmx20g -cp "./ims-hotcoref-standalone.jar:./lib/*" ims.hotcoref.Test -model ./coref-model-tueba9-trained-on-all  -out ./../$OUTDIR/$origfilename.conll.final.out -cores "4" -in ./../$OUTDIR/$origfilename.conll.final -lemmaBased -beam 20
 	#=========================================
@@ -233,7 +233,7 @@ file="$1"
 	
 	cd ./../$OUTDIR
 	mv $origfilename.conll.final.out2 $2
-	rm $origfilename.*
+	#rm $origfilename.*
 
 	
 	echo "
