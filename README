@@ -28,8 +28,8 @@ mv model file from "ner/classifiers/edu/stanford/nlp/models/ner/german.conll.hgc
 
 IMS HOTCOREF DE:
 http://www.ims.uni-stuttgart.de/forschung/ressourcen/werkzeuge/HotCorefDe
-Download the archive, unzip into folder /ims-hotcoref-de-lrec
-Download the model coref-model-tueba10-all-pred and put it without unpacking into the ./ims-hotcoref-de-lrec folder
+Download the archive, unzip into folder /ims-hotcoref
+Download the pre-trained model coref-model-2017 and put it without unpacking into the ./ims-hotcoref folder
 You can of course also try the other models, just rename the model in the coreference step in the shell script!
 
 Note: 
